@@ -1,6 +1,7 @@
 # this is proof of concept I realize the method is dogshit dont bother me about it, I just needed the datasets for now to see if it will even work
 import random
 import csv
+from pairing_functions import cantor, szudzik
 
 requested_amount = int(input("How many entities should be created? (int): "))
 complexity = 10
@@ -10,27 +11,28 @@ Two trait axis:
 - aggression
 - morality
 - wanderlust
-
-Four jobs quadrants:
-   a,  m = security
-   a, -m = pirate
-  -a,  m = trading
-  -a, -m = smuggling
 '''
 
 # npc class with name, plus traits
-class NPC:
+class Entity:
     def __init__(self, name, aggression, morality, wanderlust):
         self.name = name
         self.aggression = aggression
         self.morality = morality
         self.wanderlust = wanderlust
         
+        # use pairing functions to create behavior digit (szudzik is slightly faster)
+        self.behavior = szudzik.pair(self.aggression, self.morality, self.wanderlust)
+        
 
 # loop creation of NPC objects
-i = 0
+with open('entities.csv', 'w') as f:
+    i = 0
+    entity_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    while i < requested_amount:
+        name = f"npc#{i}"
+        entity = Entity(name, random.randint(-complexity, complexity), random.randint(-complexity, complexity), random.randint(-complexity, complexity))
+        entity_writer.writerow([entity.name, entity.behavior])
+        i += 1
         
-while i < requested_amount:
-    name = f"npc#{i}"
-    entity = NPC(name, random.randint(-complexity, complexity), random.randint(-complexity, complexity), random.randint(-complexity, complexity))
-    
+        
