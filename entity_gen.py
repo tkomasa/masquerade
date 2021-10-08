@@ -1,7 +1,7 @@
 # this is proof of concept I realize the method is dogshit dont bother me about it, I just needed the datasets for now to see if it will even work
 import random
 import csv
-from pairing_functions import cantor, szudzik
+from pairing_functions import szudzik
 
 requested_amount = int(input("How many entities should be created? (int): "))
 complexity = 10
@@ -34,5 +34,7 @@ with open('entities.csv', 'w') as f:
         entity = Entity(name, random.randint(0, complexity), random.randint(0, complexity), random.randint(0, complexity))
         entity_writer.writerow([entity.name, entity.behavior])
         i += 1
+        
+
         
         
