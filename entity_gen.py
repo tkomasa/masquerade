@@ -35,5 +35,5 @@ with open('entities.csv', 'w') as f:
         
 # end of timer
 stop_time = time.time_ns()
-elapsed_time = str(int(stop_time - start_time))
-print(f"Finished generation of {requested_amount} entities in {elapsed_time}")
+elapsed_time = (int(stop_time - start_time)) / 1000000000
+print(f"Finished generation of {requested_amount} entities in {elapsed_time} seconds.")
