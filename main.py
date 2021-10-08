@@ -31,7 +31,7 @@ with open('entities.csv', 'w') as f:
     entity_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
     while i < requested_amount:
         name = f"npc#{i}"
-        entity = Entity(name, random.randint(-complexity, complexity), random.randint(-complexity, complexity), random.randint(-complexity, complexity))
+        entity = Entity(name, random.randint(0, complexity), random.randint(0, complexity), random.randint(0, complexity))
         entity_writer.writerow([entity.name, entity.behavior])
         i += 1
         
