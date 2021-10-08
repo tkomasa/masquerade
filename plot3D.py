@@ -1,3 +1,5 @@
+#TODO: test this shit
+
 import pandas
 from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt 
@@ -12,3 +14,5 @@ def plot3D(csv_points_filename):
     z = points['z'].values
     ax.scatter(x, y, z, c='r', marker='o')
     plt.show()
+    
+plot3D('entities.csv')

@@ -27,7 +27,7 @@ start_time = time.time_ns()
 with open('entities.csv', 'w') as f:
     i = 0
     entity_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
-    entity_writer.writerow(['Name', 'Behavior ID', 'Aggression', 'Morality', 'Wanderlust'])
+    entity_writer.writerow(['Name', 'Behavior ID', 'x', 'y', 'z'])
     while i < requested_amount:
         entity = Entity(f"npc#{i}", random.randint(0, complexity), random.randint(0, complexity), random.randint(0, complexity))
         entity_writer.writerow([entity.name, entity.behavior, entity.aggression, entity.morality, entity.wanderlust])
