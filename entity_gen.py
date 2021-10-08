@@ -2,16 +2,10 @@
 import random
 import csv
 from pairing_functions import szudzik
+import time
 
 requested_amount = int(input("How many entities should be created? (int): "))
 complexity = 10
-
-'''
-Three trait axis:
-- aggression
-- morality
-- wanderlust
-'''
 
 # npc class with name, plus traits
 class Entity:
@@ -24,6 +18,9 @@ class Entity:
         # use pairing functions to create behavior digit (szudzik is slightly faster)
         self.behavior = szudzik.pair(self.aggression, self.morality, self.wanderlust)
         
+# start of timer
+start_time = time.time_ns()
+
 
 # loop creation of NPC objects
 with open('entities.csv', 'w') as f:
@@ -36,7 +33,7 @@ with open('entities.csv', 'w') as f:
         entity_writer.writerow([entity.name, entity.behavior, entity.aggression, entity.morality, entity.wanderlust])
         i += 1
         
-'''
-Career choices:
-
-'''
+# end of timer
+stop_time = time.time_ns()
+elapsed_time = str(int(stop_time - start_time))
+print(f"Finished generation of {requested_amount} entities in {elapsed_time}")
