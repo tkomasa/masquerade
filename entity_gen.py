@@ -3,6 +3,7 @@ import random
 import csv
 from pairing_functions import szudzik
 import time
+import plot3D
 
 requested_amount = int(input("How many entities should be created? (int): "))
 complexity = 10
