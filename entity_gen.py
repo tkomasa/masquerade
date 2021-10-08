@@ -7,7 +7,7 @@ requested_amount = int(input("How many entities should be created? (int): "))
 complexity = 10
 
 '''
-Two trait axis:
+Three trait axis:
 - aggression
 - morality
 - wanderlust
@@ -29,12 +29,14 @@ class Entity:
 with open('entities.csv', 'w') as f:
     i = 0
     entity_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
+    entity_writer.writerow(['Name', 'Behavior ID', 'Aggression', 'Morality', 'Wanderlust'])
     while i < requested_amount:
         name = f"npc#{i}"
         entity = Entity(name, random.randint(0, complexity), random.randint(0, complexity), random.randint(0, complexity))
-        entity_writer.writerow([entity.name, entity.behavior])
+        entity_writer.writerow([entity.name, entity.behavior, entity.aggression, entity.morality, entity.wanderlust])
         i += 1
         
+'''
+Career choices:
 
-        
-        
+'''
