@@ -33,8 +33,8 @@ def generate_jobs(num_jobs, complexity):
         job_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
         job_writer.writerow(['Name', 'Behavior ID', 'Aggression', 'Morality', 'Distance', 'Reward'])
         while i < num_jobs:
-            entity = Job(f"job#{i}", random.randint(0, complexity), random.randint(0, complexity), random.randint(0, complexity))
-            job_writer.writerow([entity.name, entity.behavior, entity.aggression, entity.morality, entity.distance, entity.reward])
+            job = Job(f"job#{i}", random.randint(0, complexity), random.randint(0, complexity), random.randint(0, complexity))
+            job_writer.writerow([job.name, job.behavior, job.aggression, job.morality, job.distance, job.reward])
             i += 1
             
     # end of timer
