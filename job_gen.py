@@ -14,6 +14,7 @@ class Job:
         self.aggression = aggression
         self.morality = morality
         self.distance = distance
+        self.reward = random.randint(100, 10000)
         
         # assign the human-understandable job type
         self.job_type = ""
@@ -29,10 +30,10 @@ start_time = time.time_ns()
 with open('jobs.csv', 'w') as f:
     i = 0
     job_writer = csv.writer(f, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
-    job_writer.writerow(['Name', 'Behavior ID', 'Aggression', 'Morality', 'Distance'])
+    job_writer.writerow(['Name', 'Behavior ID', 'Aggression', 'Morality', 'Distance', 'Reward'])
     while i < requested_amount:
         entity = Job(f"job#{i}", random.randint(0, complexity), random.randint(0, complexity), random.randint(0, complexity))
-        job_writer.writerow([entity.name, entity.behavior, entity.aggression, entity.morality, entity.distance])
+        job_writer.writerow([entity.name, entity.behavior, entity.aggression, entity.morality, entity.distance, entity.reward])
         i += 1
         
 # end of timer
