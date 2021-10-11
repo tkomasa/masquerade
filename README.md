@@ -7,4 +7,4 @@ This is step 1 in a simulation project for fun. This part will simulate choices 
 - end goal of actually completing the job
 - random generation of npc
 - szudzik vs cantor pairing functions
-- 
+- use cases
