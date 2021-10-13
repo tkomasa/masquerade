@@ -8,3 +8,6 @@ This is step 1 in a simulation project for fun. This part will simulate choices 
 - random generation of npc
 - szudzik vs cantor pairing functions
 - use cases
+
+
+will need to maybe go tenserflow route
