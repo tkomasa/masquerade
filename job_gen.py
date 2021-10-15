@@ -5,7 +5,7 @@ from pairing_functions import szudzik
 import time
 
 requested_amount = int(input("How many entities should be created? (int): "))  # just for testing
-complexity = 10 # simply defines how high a number the random trait values can go to, cannot be negative
+complexity = 10  # simply defines how high a number the random trait values can go to, cannot be negative
 
 
 def generate_jobs(num_jobs, complexity):
